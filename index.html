@@ -42,6 +42,7 @@
       html {
         scroll-behavior: smooth;
         font-size: 16px;
+        overflow-x: hidden;
       }
 
       body {
@@ -966,6 +967,21 @@
       }
 
       @media (max-width: 768px) {
+        .announcement-bar {
+          padding: 10px 48px 10px 24px;
+          font-size: 0.8rem;
+          text-align: left;
+          justify-content: flex-start;
+        }
+
+        .announcement-bar p {
+          line-height: 1.4;
+        }
+
+        .dismiss-btn {
+          right: 16px;
+        }
+
         .section-padding {
           padding: 64px 0;
         }
@@ -976,6 +992,10 @@
 
         .nav-links {
           display: none;
+        }
+
+        .nav-cta {
+          display: none !important;
         }
 
         .menu-toggle {
@@ -991,15 +1011,49 @@
           padding-right: 24px;
         }
 
+        .hero-title {
+          font-size: clamp(2.0rem, 8vw, 3.2rem);
+          line-height: 1.1;
+        }
+
         .hero-indicators {
           position: static;
           text-align: left;
           margin-top: 48px;
           gap: 6px;
+          padding-left: 24px;
+          padding-right: 24px;
         }
 
         .hero-ind-item {
           font-size: 0.75rem;
+        }
+
+        .stat-card {
+          padding: 16px;
+          min-height: 120px;
+        }
+
+        .stats-grid {
+          gap: 12px;
+        }
+
+        .stat-number {
+          font-size: 2.2rem;
+        }
+
+        .usp-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .usp-title {
+          flex: none;
+        }
+
+        .usp-desc {
+          text-align: left;
         }
 
         .service-row {
@@ -1023,6 +1077,14 @@
           margin-top: 8px;
         }
 
+        .services-bar {
+          padding: 20px 24px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 16px;
+          margin-top: 32px;
+        }
+
         .hours-grid {
           grid-template-columns: 1fr;
           gap: 48px;
@@ -1041,14 +1103,10 @@
           grid-column: span 1;
         }
 
-        .usp-row {
+        .footer-row {
           flex-direction: column;
-          align-items: flex-start;
-          gap: 8px;
-        }
-
-        .usp-desc {
-          text-align: left;
+          text-align: center;
+          gap: 12px;
         }
       }
     </style>
