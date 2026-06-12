@@ -1,0 +1,6 @@
+{
+  "name": "Hydro Spec",
+  "description": "Profesjonalne usługi hydrauliczne i HVAC na terenie Małopolski, Podkarpacia i Świętokrzyskiego",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

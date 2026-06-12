@@ -1,0 +1,1560 @@
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hydro Spec – Usługi Hydrauliczne i HVAC · Małopolska · Podkarpacie · Świętokrzyskie</title>
+    <meta name="description" content="Profesjonalny montaż i modernizacja instalacji grzewczych, wodno-kanalizacyjnych, klimatyzacji, pomp ciepła i rekuperacji. Kompleksowo od projektu po uruchomienie. Szybko, solidnie i terminowo." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%231C3557'/%3E%3Ctext y='1.15em' x='0.15em' font-size='60' font-family='serif' font-weight='bold' fill='white'%3EH%3C/text%3E%3C/svg%3E" />
+    <!-- Google Fonts: DM Sans, DM Serif Display, JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=DM+Serif+Display:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Font Awesome (for faceobook icon specifically) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+      /* --- CSS ROOT VARIABLES --- */
+      :root {
+        --page: #F2F4F0;
+        --primary: #1C3557;
+        --mid-blue: #2B5DA0;
+        --accent: #4A8FCC;
+        --ink: #171C23;
+        --secondary: #555F6E;
+        --faint: #9AAAB8;
+        --white: #FFFFFF;
+        --surface: #EAECEB;
+        --rule: #D0D6DC;
+        --navy-dark: #111E30;
+        --teal-light: #E8F5F5;
+        --teal-dark: #0D7A7A;
+        --transition: 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      /* --- RESET & BASIC STYLES --- */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      
+      html {
+        scroll-behavior: smooth;
+        font-size: 16px;
+      }
+
+      body {
+        background-color: var(--page);
+        color: var(--ink);
+        font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-feature-settings: 'cv11', 'ss01';
+        overflow-x: hidden;
+        line-height: 1.72;
+      }
+
+      /* --- TYPOGRAPHY PAIRINGS --- */
+      h1, h2, .serif-text {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-weight: 400;
+        letter-spacing: -0.01em;
+        color: var(--ink);
+      }
+
+      h3, h4, h5, h6 {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .mono {
+        font-family: 'JetBrains Mono', monospace;
+        font-variant-numeric: tabular-nums;
+        font-weight: 500;
+      }
+
+      p {
+        color: var(--secondary);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+        transition: color var(--transition), opacity var(--transition);
+      }
+
+      /* --- LAYOUT UTILITIES --- */
+      .container {
+        width: 100%;
+        max-width: 1140px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-right: 24px;
+        padding-left: 24px;
+      }
+
+      .section-padding {
+        padding: 96px 0;
+      }
+
+      /* --- HEADER LABELS --- */
+      .section-label {
+        display: block;
+        font-family: 'DM Sans', sans-serif;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--mid-blue);
+        margin-bottom: 16px;
+      }
+
+      /* --- REVEAL ON SCROLL --- */
+      .reveal {
+        opacity: 0;
+        transform: translateY(12px);
+        transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1), transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .reveal.active {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* --- 1. ANNOUNCEMENT BAR --- */
+      .announcement-bar {
+        background-color: var(--mid-blue);
+        color: var(--white);
+        padding: 10px 24px;
+        text-align: center;
+        font-size: 0.85rem;
+        font-weight: 500;
+        position: relative;
+        z-index: 1001;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .announcement-bar p {
+        color: var(--white);
+        margin: 0;
+        letter-spacing: 0.02em;
+      }
+
+      .announcement-bar a {
+        color: var(--white);
+        text-decoration: underline;
+        font-family: 'JetBrains Mono', monospace;
+        margin-left: 6px;
+        white-space: nowrap;
+      }
+
+      .announcement-bar a:hover {
+        opacity: 0.85;
+      }
+
+      .dismiss-btn {
+        background: none;
+        border: none;
+        color: var(--white);
+        font-size: 1.2rem;
+        cursor: pointer;
+        position: absolute;
+        right: 24px;
+        top: 50%;
+        transform: translateY(-50%);
+        line-height: 1;
+        padding: 4px;
+        transition: opacity var(--transition);
+      }
+
+      .dismiss-btn:hover {
+        opacity: 0.7;
+      }
+
+      /* --- 2. HEADER NAVIGATION --- */
+      .navbar {
+        background-color: var(--page);
+        border-bottom: 1px solid var(--rule);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        height: 72px;
+      }
+
+      .navbar .container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .nav-logo {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: 1.3rem;
+        color: var(--ink);
+        font-weight: 400;
+      }
+
+      .nav-links {
+        display: flex;
+        align-items: center;
+        list-style: none;
+        gap: 32px;
+      }
+
+      .nav-links a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--secondary);
+      }
+
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+
+      .nav-cta {
+        font-size: 0.875rem;
+        color: var(--primary);
+      }
+
+      .nav-cta:hover {
+        color: var(--mid-blue);
+      }
+
+      /* Hamburger menu */
+      .menu-toggle {
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+        z-index: 1002;
+      }
+
+      .hamburger {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: var(--ink);
+        position: relative;
+        transition: background-color var(--transition);
+      }
+
+      .hamburger::before,
+      .hamburger::after {
+        content: '';
+        display: block;
+        width: 20px;
+        height: 2px;
+        background-color: var(--ink);
+        position: absolute;
+        transition: transform var(--transition), top var(--transition), bottom var(--transition);
+      }
+
+      .hamburger::before {
+        top: -6px;
+      }
+
+      .hamburger::after {
+        bottom: -6px;
+      }
+
+      /* Mobile overlay menu */
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: var(--page);
+        z-index: 999;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity var(--transition), visibility var(--transition);
+      }
+
+      .mobile-menu.active {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-nav-links {
+        list-style: none;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+        margin-bottom: 48px;
+      }
+
+      .mobile-nav-links a {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: 2rem;
+        color: var(--ink);
+      }
+
+      .mobile-nav-cta {
+        text-align: center;
+      }
+
+      .mobile-nav-cta p {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 8px;
+        color: var(--secondary);
+      }
+
+      .mobile-nav-cta a {
+        font-size: 1.5rem;
+        color: var(--primary);
+      }
+
+      body.no-scroll {
+        overflow: hidden;
+      }
+
+      /* Hamburger menu open style */
+      .menu-toggle[aria-expanded="true"] .hamburger {
+        background-color: transparent;
+      }
+      .menu-toggle[aria-expanded="true"] .hamburger::before {
+        transform: rotate(45deg);
+        top: 0;
+      }
+      .menu-toggle[aria-expanded="true"] .hamburger::after {
+        transform: rotate(-45deg);
+        bottom: 0;
+      }
+
+      /* --- 3. HERO SECTION --- */
+      .hero {
+        background-color: var(--navy-dark);
+        color: var(--white);
+        min-height: calc(100vh - 72px);
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 96px 0;
+        overflow: hidden;
+      }
+
+      .hero .container {
+        position: relative;
+        z-index: 2;
+        padding-left: max(24px, 8vw);
+      }
+
+      .hero-label {
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--accent);
+      }
+
+      .hero-rule {
+        border: none;
+        border-bottom: 1px solid var(--mid-blue);
+        width: 48px;
+        margin: 20px 0;
+      }
+
+      .hero-title {
+        color: var(--white);
+        font-size: clamp(2.8rem, 5.5vw, 5.5rem);
+        line-height: 1.08;
+        margin-bottom: 24px;
+      }
+
+      .hero-title em {
+        font-style: italic;
+        color: var(--accent);
+      }
+
+      .hero-subtitle {
+        font-weight: 300;
+        font-size: 1.05rem;
+        line-height: 1.72;
+        color: rgba(255, 255, 255, 0.58);
+        max-width: 440px;
+        margin-bottom: 40px;
+      }
+
+      .hero-cta {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .hero-link {
+        font-size: 1.05rem;
+        font-weight: 500;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        line-height: 1.2;
+      }
+
+      .hero-link-primary {
+        color: var(--white);
+        font-weight: 600;
+      }
+
+      .hero-link-primary:hover {
+        color: var(--accent);
+      }
+
+      .hero-link-secondary {
+        color: rgba(255, 255, 255, 0.45);
+      }
+
+      .hero-link-secondary:hover {
+        color: var(--white);
+      }
+
+      /* Stacked service labels right-aligned in hero */
+      .hero-indicators {
+        position: absolute;
+        bottom: 64px;
+        right: max(48px, 8vw);
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        text-align: right;
+        z-index: 2;
+      }
+
+      .hero-ind-item {
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 300;
+        font-size: 0.8rem;
+        letter-spacing: 0.05em;
+        color: rgba(255, 255, 255, 0.3);
+      }
+
+      /* --- 4. ABOUT SECTION --- */
+      .about-section {
+        background-color: var(--white);
+      }
+
+      .about-grid {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 72px;
+        align-items: flex-start;
+      }
+
+      .about-title {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.15;
+        margin-bottom: 24px;
+      }
+
+      .about-text {
+        font-size: 1.05rem;
+        margin-bottom: 24px;
+      }
+
+      .usp-rows {
+        margin-top: 48px;
+      }
+
+      .usp-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 20px 0;
+        border-bottom: 1px solid var(--rule);
+        gap: 24px;
+      }
+
+      .usp-row:first-child {
+        border-top: 1px solid var(--rule);
+      }
+
+      .usp-title {
+        font-size: 1rem;
+        font-weight: 500;
+        color: var(--ink);
+        flex: 0 0 50%;
+      }
+
+      .usp-desc {
+        font-size: 0.95rem;
+        color: var(--faint);
+        text-align: right;
+      }
+
+      /* Stats blocks grid */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+
+      .stat-card {
+        background-color: var(--page);
+        border: 1px solid var(--rule);
+        border-radius: 4px;
+        padding: 32px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 170px;
+        transition: border-color var(--transition);
+      }
+
+      .stat-card:hover {
+        border-color: var(--mid-blue);
+      }
+
+      .stat-number {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-weight: 400;
+        font-size: 3.5rem;
+        line-height: 1;
+        color: var(--primary);
+        margin-bottom: 8px;
+      }
+
+      .stat-label {
+        font-size: 0.85rem;
+        color: var(--faint);
+      }
+
+      /* --- 5. SERVICES SECTION --- */
+      .services-section {
+        background-color: var(--page);
+      }
+
+      .services-title {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+
+      .services-list {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .service-row {
+        display: flex;
+        align-items: center;
+        padding: 28px 0;
+        border-bottom: 1px solid var(--rule);
+        gap: 32px;
+        transition: background-color var(--transition), padding var(--transition);
+        position: relative;
+      }
+
+      .service-row:first-child {
+        border-top: 1px solid var(--rule);
+      }
+
+      .service-row:hover {
+        background-color: var(--surface);
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .service-num {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-style: italic;
+        font-weight: 400;
+        font-size: 2rem;
+        color: var(--rule);
+        flex: 0 0 60px;
+        line-height: 1;
+        transition: color var(--transition);
+      }
+
+      .service-row:hover .service-num {
+        color: var(--mid-blue);
+      }
+
+      .service-content {
+        flex: 1;
+        display: flex;
+        align-items: baseline;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .service-name {
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--ink);
+      }
+
+      .service-dot {
+        color: var(--rule);
+      }
+
+      .service-desc {
+        color: var(--secondary);
+        font-size: 1rem;
+      }
+
+      .service-tag {
+        border: 1px solid var(--rule);
+        border-radius: 100px;
+        font-size: 0.75rem;
+        color: var(--faint);
+        padding: 4px 12px;
+        white-space: nowrap;
+      }
+
+      .service-tag-eco {
+        background-color: var(--teal-light);
+        border-color: var(--teal-light);
+        color: var(--teal-dark);
+        font-weight: 500;
+      }
+
+      /* Services bottom CTA Bar */
+      .services-bar {
+        background-color: var(--primary);
+        color: var(--white);
+        padding: 24px 48px;
+        border-radius: 4px;
+        margin-top: 48px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 24px;
+        flex-wrap: wrap;
+      }
+
+      .services-bar-title {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-style: italic;
+        font-size: 1.35rem;
+        color: var(--white);
+        font-weight: 400;
+      }
+
+      .services-bar-phone {
+        font-size: 1.15rem;
+        color: var(--white);
+        font-weight: 500;
+      }
+
+      .services-bar-phone:hover {
+        color: var(--accent);
+      }
+
+      /* --- 6. SERVICE AREA SECTION --- */
+      .area-section {
+        background-color: var(--navy-dark);
+        color: var(--white);
+      }
+
+      .area-label {
+        color: var(--accent);
+      }
+
+      .area-title {
+        color: var(--white);
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+
+      .area-grid {
+        display: grid;
+        grid-template-columns: 1fr 1.2fr;
+        gap: 72px;
+        align-items: flex-start;
+      }
+
+      .area-left-copy {
+        margin-bottom: 32px;
+        color: rgba(255, 255, 255, 0.55);
+        font-weight: 300;
+      }
+
+      .area-quote {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-style: italic;
+        font-size: 1.35rem;
+        line-height: 1.4;
+        color: var(--white);
+        border-left: 2px solid var(--mid-blue);
+        padding-left: 16px;
+      }
+
+      .area-regions {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .region-block {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 20px 0;
+      }
+
+      .region-block:first-child {
+        padding-top: 0;
+      }
+
+      .region-block:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .region-name {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 600;
+        color: var(--white);
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .region-cities {
+        color: rgba(255, 255, 255, 0.45);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .area-footer-text {
+        font-size: 0.9rem;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.4);
+        margin-top: 48px;
+      }
+
+      /* --- 7. HOURS SECTION --- */
+      .hours-section {
+        background-color: var(--white);
+      }
+
+      .hours-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 96px;
+        align-items: flex-start;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .hours-title {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.15;
+        margin-bottom: 24px;
+      }
+
+      .hours-text {
+        margin-bottom: 24px;
+      }
+
+      /* Schedule table */
+      .schedule-table {
+        border-top: 1px solid var(--rule);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .schedule-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 13px 0;
+        border-bottom: 1px solid var(--rule);
+        transition: padding var(--transition), border-left var(--transition), background-color var(--transition);
+      }
+
+      .schedule-day {
+        font-size: 1rem;
+        font-weight: 400;
+        color: var(--ink);
+      }
+
+      .schedule-time {
+        font-size: 0.95rem;
+        color: var(--primary);
+      }
+
+      .schedule-closed {
+        color: var(--faint);
+      }
+
+      .schedule-row.active-day {
+        font-weight: 600;
+        color: var(--mid-blue);
+        border-left: 2px solid var(--mid-blue);
+        padding-left: 12px;
+        background-color: rgba(43, 93, 160, 0.04);
+      }
+
+      .schedule-row.active-day .schedule-day {
+        font-weight: 600;
+        color: var(--mid-blue);
+      }
+
+      .schedule-row.active-day .schedule-time {
+        font-weight: 600;
+        color: var(--mid-blue);
+      }
+
+      /* --- 8. CONTACT SECTION --- */
+      .contact-section {
+        background-color: var(--page);
+      }
+
+      .contact-title {
+        font-size: clamp(2rem, 3.5vw, 2.75rem);
+        line-height: 1.15;
+        margin-bottom: 48px;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1.4fr;
+        gap: 48px;
+        align-items: flex-start;
+      }
+
+      .contact-items {
+        display: flex;
+        flex-direction: column;
+        gap: 24px;
+      }
+
+      .contact-label {
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-weight: 600;
+        color: var(--ink);
+        margin-bottom: 4px;
+        display: block;
+      }
+
+      .contact-value {
+        font-size: 1.05rem;
+        color: var(--secondary);
+      }
+
+      .contact-link {
+        color: var(--mid-blue);
+      }
+
+      .contact-link:hover {
+        text-decoration: underline;
+      }
+
+      /* Col 2 details */
+      .contact-col-middle {
+        padding-top: 56px;
+      }
+
+      .facebook-link-row {
+        border-top: 1px solid var(--rule);
+        border-bottom: 1px solid var(--rule);
+        padding: 20px 0;
+        font-weight: 500;
+        display: block;
+        font-size: 1.1rem;
+        color: var(--ink);
+        transition: color var(--transition);
+      }
+
+      .facebook-link-row:hover {
+        color: var(--mid-blue);
+      }
+
+      .facebook-link-row i {
+        margin-right: 8px;
+        font-size: 1.2rem;
+      }
+
+      .facebook-subtext {
+        font-size: 0.85rem;
+        font-style: italic;
+        color: var(--faint);
+        margin-top: 12px;
+        margin-bottom: 32px;
+      }
+
+      .hours-summary-box {
+        font-size: 0.85rem;
+        font-weight: 300;
+        color: var(--faint);
+      }
+
+      /* Map container */
+      .map-container {
+        border-radius: 4px;
+        overflow: hidden;
+        height: 380px;
+        border: 1px solid var(--rule);
+      }
+
+      .map-iframe {
+        width: 100%;
+        height: 100%;
+        border: 0;
+      }
+
+      /* --- 9. FOOTER --- */
+      .footer {
+        background-color: var(--navy-dark);
+        color: var(--white);
+        padding: 32px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.07);
+      }
+
+      .footer-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 16px;
+      }
+
+      .footer-logo {
+        font-family: 'DM Serif Display', Georgia, serif;
+        font-size: 1.1rem;
+        color: var(--white);
+      }
+
+      .footer-center {
+        color: rgba(255, 255, 255, 0.35);
+        font-weight: 300;
+        font-size: 0.85rem;
+      }
+
+      .footer-right {
+        color: rgba(255, 255, 255, 0.25);
+        font-weight: 300;
+        font-size: 0.85rem;
+      }
+
+      /* --- MEDIA QUERIES (RESPONSIVENESS) --- */
+      @media (max-width: 992px) {
+        .about-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .area-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr 1fr;
+          gap: 32px;
+        }
+
+        .contact-col-map {
+          grid-column: span 2;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .section-padding {
+          padding: 64px 0;
+        }
+
+        .navbar {
+          height: 64px;
+        }
+
+        .nav-links {
+          display: none;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero {
+          min-height: calc(100vh - 64px);
+        }
+
+        .hero .container {
+          padding-left: 24px;
+          padding-right: 24px;
+        }
+
+        .hero-indicators {
+          position: static;
+          text-align: left;
+          margin-top: 48px;
+          gap: 6px;
+        }
+
+        .hero-ind-item {
+          font-size: 0.75rem;
+        }
+
+        .service-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          padding: 20px 0;
+        }
+
+        .service-num {
+          font-size: 1.5rem;
+          margin-bottom: 4px;
+        }
+
+        .service-content {
+          width: 100%;
+        }
+
+        .service-tag {
+          align-self: flex-start;
+          margin-top: 8px;
+        }
+
+        .hours-grid {
+          grid-template-columns: 1fr;
+          gap: 48px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+
+        .contact-col-middle {
+          padding-top: 0;
+        }
+
+        .contact-col-map {
+          grid-column: span 1;
+        }
+
+        .usp-row {
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        .usp-desc {
+          text-align: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 1. ANNOUNCEMENT BAR -->
+    <div class="announcement-bar" id="announcement-bar">
+      <p>Działamy na terenie Małopolski, Podkarpacia i Świętokrzyskiego · 📞 Zadzwoń:<a href="tel:790883645">790 883 645</a></p>
+      <button class="dismiss-btn" id="dismiss-bar" aria-label="Zamknij powiadomienie">×</button>
+    </div>
+
+    <!-- 2. STICKY NAVIGATION -->
+    <nav class="navbar">
+      <div class="container">
+        <a href="#" class="nav-logo">Hydro Spec</a>
+        
+        <ul class="nav-links">
+          <li><a href="#o-nas">O Nas</a></li>
+          <li><a href="#uslugi">Usługi</a></li>
+          <li><a href="#obszar">Obszar</a></li>
+          <li><a href="#godziny">Godziny</a></li>
+          <li><a href="#kontakt">Kontakt</a></li>
+        </ul>
+        
+        <a href="tel:790883645" class="nav-cta mono">790 883 645</a>
+        
+        <button class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-label="Menu">
+          <span class="hamburger"></span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- MOBILE OVERLAY MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+      <ul class="mobile-nav-links">
+        <li><a href="#o-nas">O Nas</a></li>
+        <li><a href="#uslugi">Usługi</a></li>
+        <li><a href="#obszar">Obszar</a></li>
+        <li><a href="#godziny">Godziny</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+      <div class="mobile-nav-cta">
+        <p>Szybki kontakt</p>
+        <a href="tel:790883645" class="mono">790 883 645</a>
+      </div>
+    </div>
+
+    <!-- 3. HERO SECTION -->
+    <header class="hero">
+      <div class="container reveal">
+        <span class="hero-label">Usługi hydrauliczne i HVAC</span>
+        <hr class="hero-rule" />
+        <h1 class="hero-title">
+          Profesjonalne<br>
+          instalacje<br>
+          <em>hydrauliczne.</em>
+        </h1>
+        <p class="hero-subtitle">
+          Montaż i modernizacja instalacji grzewczych, wod-kan, klimatyzacji i pomp ciepła — od projektu po uruchomienie.
+        </p>
+        <div class="hero-cta">
+          <a href="tel:790883645" class="hero-link hero-link-primary">→ Zadzwoń: 790 883 645</a>
+          <a href="#uslugi" class="hero-link hero-link-secondary">→ Nasze usługi</a>
+        </div>
+      </div>
+      
+      <!-- Quiet right index -->
+      <div class="hero-indicators">
+        <span class="hero-ind-item">Ogrzewanie</span>
+        <span class="hero-ind-item">Wod-Kan</span>
+        <span class="hero-ind-item">Klimatyzacja</span>
+        <span class="hero-ind-item">Rekuperacja</span>
+      </div>
+    </header>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="o-nas" class="section-padding about-section">
+      <div class="container">
+        <div class="about-grid">
+          <!-- Left Column Coppy & USPs -->
+          <div class="reveal">
+            <span class="section-label">O firmie</span>
+            <h2 class="about-title">Instalacje od projektu po uruchomienie</h2>
+            <p class="about-text">
+              Jesteśmy nowoczesną firmą instalacyjną, dla której precyzja wykonania i transparentność są absolutnymi priorytetami. Projektujemy i wdrażamy zaawansowane systemy grzewcze oraz sanitarne, kładąc szczególny nacisk na energooszczędność oraz niezawodność przez lata.
+            </p>
+            <p class="about-text" style="margin-bottom: 0;">
+              Działamy z poszanowaniem Twojego czasu — każde zlecenie realizujemy zgodnie z harmonogramem, bez kompromisów jakościowych. Wybierając Hydro Spec, masz pewność, że instalacja zostanie zaplanowana optymalnie, zamontowana zgodnie ze sztuką budowlaną i bezpiecznie uruchomiona.
+            </p>
+            
+            <div class="usp-rows">
+              <div class="usp-row">
+                <span class="usp-title">Solidne wykonanie</span>
+                <span class="usp-desc">profesjonalizm w każdym projekcie</span>
+              </div>
+              <div class="usp-row">
+                <span class="usp-title">Od projektu po uruchomienie</span>
+                <span class="usp-desc">kompleksowa obsługa</span>
+              </div>
+              <div class="usp-row">
+                <span class="usp-title">Energooszczędne rozwiązania</span>
+                <span class="usp-desc">przyszłość dla domu i firmy</span>
+              </div>
+              <div class="usp-row">
+                <span class="usp-title">Terminowe realizacje</span>
+                <span class="usp-desc">bez kompromisów</span>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Right Column 2x2 Stats -->
+          <div class="stats-grid reveal" style="transition-delay: 0.1s;">
+            <div class="stat-card">
+              <span class="stat-number mono" data-target="3" data-suffix="">0</span>
+              <span class="stat-label">Województwa</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number mono" data-target="10" data-suffix="+">0</span>
+              <span class="stat-label">Miast obsługiwanych</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number mono" data-target="7" data-time="true">07:00</span>
+              <span class="stat-label">Start dnia pracy</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-number mono" data-target="100" data-suffix="%">0</span>
+              <span class="stat-label">Gwarancji jakości</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SERVICES SECTION -->
+    <section id="uslugi" class="section-padding services-section">
+      <div class="container reveal">
+        <span class="section-label">Zakres usług</span>
+        <h2 class="services-title">Nasze specjalizacje</h2>
+        
+        <div class="services-list">
+          <!-- Row 1 -->
+          <div class="service-row">
+            <span class="service-num">01</span>
+            <div class="service-content">
+              <span class="service-name">Instalacje Grzejnikowe i Podłogowe</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Projektowanie i montaż nowoczesnego ogrzewania płaszczyznowego oraz tradycyjnych instalacji grzejnikowych.</span>
+            </div>
+            <span class="service-tag">ogrzewanie</span>
+          </div>
+
+          <!-- Row 2 -->
+          <div class="service-row">
+            <span class="service-num">02</span>
+            <div class="service-content">
+              <span class="service-name">Instalacje Wod-Kan</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Bezawaryjne systemy dystrybucji wody i odprowadzania ścieków z najwyższej jakości certyfikowanych materiałów.</span>
+            </div>
+            <span class="service-tag">sanitarne</span>
+          </div>
+
+          <!-- Row 3 -->
+          <div class="service-row">
+            <span class="service-num">03</span>
+            <div class="service-content">
+              <span class="service-name">Kotły Gazowe i Pelletowe</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Dobór i profesjonalny montaż ekonomicznych urządzeń grzewczych wiodących producentów europejskich.</span>
+            </div>
+            <span class="service-tag">technika grzewcza</span>
+          </div>
+
+          <!-- Row 4 -->
+          <div class="service-row">
+            <span class="service-num">04</span>
+            <div class="service-content">
+              <span class="service-name">Rekuperacja</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Wentylacja mechaniczna z odzyskiem ciepła dla optymalnego mikroklimatu i drastycznie niższych rachunków.</span>
+            </div>
+            <span class="service-tag service-tag-eco">energooszczędne</span>
+          </div>
+
+          <!-- Row 5 -->
+          <div class="service-row">
+            <span class="service-num">05</span>
+            <div class="service-content">
+              <span class="service-name">Klimatyzacja i Pompy Ciepła</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Czyste i darmowe źródła energii połączone z idealnym komfortem termicznym przez cały rok.</span>
+            </div>
+            <span class="service-tag service-tag-eco">energooszczędne</span>
+          </div>
+
+          <!-- Row 6 -->
+          <div class="service-row">
+            <span class="service-num">06</span>
+            <div class="service-content">
+              <span class="service-name">Serwis i Naprawy</span>
+              <span class="service-dot">·</span>
+              <span class="service-desc">Szybkie wsparcie techniczne, lokalizacja wycieków, usuwanie awarii i konserwacja urządzeń sanitarno-grzewczych.</span>
+            </div>
+            <span class="service-tag">serwis</span>
+          </div>
+        </div>
+        
+        <!-- Bottom CTA Bar -->
+        <div class="services-bar">
+          <span class="services-bar-title">Nie ma rzeczy niemożliwych — zadzwoń i omów swój projekt.</span>
+          <a href="tel:790883645" class="services-bar-phone mono">→ 790 883 645</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. SERVICE AREA SECTION -->
+    <section id="obszar" class="section-padding area-section">
+      <div class="container reveal">
+        <span class="section-label area-label">Obszar działania</span>
+        <h2 class="area-title">Gdzie działamy</h2>
+        
+        <div class="area-grid">
+          <!-- Left Column quote -->
+          <div>
+            <p class="area-left-copy">
+              Nasze usługi świadczymy kompleksowo dla budownictwa jednorodzinnego, deweloperskiego oraz obiektów komercyjnych. Zapewniamy sprawny dojazd, bezpłatną wycenę wstępną i doradztwo techniczne bezpośrednio na inwestycji.
+            </p>
+            <blockquote class="area-quote">
+              Obsługujemy klientów indywidualnych i firmy na terenie trzech sąsiadujących ze sobą województw.
+            </blockquote>
+          </div>
+          
+          <!-- Right Column Cities details -->
+          <div class="area-regions">
+            <!-- Małopolskie -->
+            <div class="region-block">
+              <span class="region-name">Województwo Małopolskie</span>
+              <p class="region-cities">
+                Kraków · Bochnia · Brzesko · Dąbrowa Tarnowska · Tarnów
+              </p>
+            </div>
+            <!-- Podkarpackie -->
+            <div class="region-block">
+              <span class="region-name">Województwo Podkarpackie</span>
+              <p class="region-cities">
+                Rzeszów · Mielec · Dębica · Radomyśl Wielki
+              </p>
+            </div>
+            <!-- Świętokrzyskie -->
+            <div class="region-block">
+              <span class="region-name">Województwo Świętokrzyskie</span>
+              <p class="region-cities">
+                Busko-Zdrój
+              </p>
+            </div>
+            
+            <p class="area-footer-text">
+              Nie widzisz swojej miejscowości? Skontaktuj się z nami telefonicznie — wspólnie ustalimy szczegóły i warunki dojazdu.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. HOURS SECTION -->
+    <section id="godziny" class="section-padding hours-section">
+      <div class="container reveal">
+        <div class="hours-grid">
+          <!-- Left Column copy -->
+          <div>
+            <span class="section-label">Godziny pracy</span>
+            <h2 class="hours-title">Kiedy pracujemy</h2>
+            <p class="hours-text">
+              Nasze realizacje planujemy z wyprzedzeniem, aby zapewnić Państwu pełną terminowość i najwyższy standard robót. Pracujemy od poniedziałku do piątku w stałych godzinach roboczych.
+            </p>
+            <p class="hours-text" style="margin-bottom: 0;">
+              <strong>Nagłe awarie?</strong> Rozumiemy, że wyciek lub awaria ogrzewania w budynku to sytuacje kryzysowe. W pilnych przypadkach po godzinach pracy lub w weekendy prosimy o kontakt telefoniczny – jeśli to możliwe, pomożemy doraźnie lub zaplanujemy najszybszy możliwy dojazd.
+            </p>
+          </div>
+          
+          <!-- Right Column Schedule -->
+          <div>
+            <div class="schedule-table">
+              <!-- Monday -->
+              <div class="schedule-row" data-day="1">
+                <span class="schedule-day">Poniedziałek</span>
+                <span class="schedule-time mono">07:00 – 17:00</span>
+              </div>
+              <!-- Tuesday -->
+              <div class="schedule-row" data-day="2">
+                <span class="schedule-day">Wtorek</span>
+                <span class="schedule-time mono">07:00 – 17:00</span>
+              </div>
+              <!-- Wednesday -->
+              <div class="schedule-row" data-day="3">
+                <span class="schedule-day">Środa</span>
+                <span class="schedule-time mono">07:00 – 17:00</span>
+              </div>
+              <!-- Thursday -->
+              <div class="schedule-row" data-day="4">
+                <span class="schedule-day">Czwartek</span>
+                <span class="schedule-time mono">07:00 – 17:00</span>
+              </div>
+              <!-- Friday -->
+              <div class="schedule-row" data-day="5">
+                <span class="schedule-day">Piątek</span>
+                <span class="schedule-time mono">07:00 – 17:00</span>
+              </div>
+              <!-- Saturday -->
+              <div class="schedule-row" data-day="6">
+                <span class="schedule-day">Sobota</span>
+                <span class="schedule-time mono schedule-closed">ZAMKNIĘTE</span>
+              </div>
+              <!-- Sunday -->
+              <div class="schedule-row" data-day="7">
+                <span class="schedule-day">Niedziela</span>
+                <span class="schedule-time mono schedule-closed">ZAMKNIĘTE</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. CONTACT SECTION -->
+    <section id="kontakt" class="section-padding contact-section">
+      <div class="container reveal">
+        <h2 class="contact-title">Znajdź nas</h2>
+        
+        <div class="contact-grid">
+          <!-- Column 1 details -->
+          <div class="contact-items">
+            <div>
+              <span class="section-label" style="margin-bottom: 8px;">Kontakt</span>
+              <span class="contact-label">Adres biura</span>
+              <p class="contact-value mono">Stare Żukowice 207,<br>33-151 Stare Żukowice</p>
+            </div>
+            <div>
+              <span class="contact-label">Telefony kontaktowe</span>
+              <p class="contact-value mono" style="margin-bottom: 4px;">
+                <a href="tel:790883645" class="contact-link">+48 790 883 645</a>
+              </p>
+              <p class="contact-value mono">
+                <a href="tel:575793878" class="contact-link">+48 575 793 878</a>
+              </p>
+            </div>
+            <div>
+              <span class="contact-label">Adres e-mail</span>
+              <p class="contact-value mono">
+                <a href="mailto:hydrospec.instalacje@gmail.com" class="contact-link">hydrospec.instalacje@gmail.com</a>
+              </p>
+            </div>
+            <div>
+              <span class="contact-label">Główny obszar robót</span>
+              <p class="contact-value font-family: 'DM Sans', sans-serif;">Małopolskie · Podkarpackie · Świętokrzyskie</p>
+            </div>
+          </div>
+          
+          <!-- Column 2 offsets -->
+          <div class="contact-col-middle">
+            <a href="https://www.facebook.com/profile.php?id=61577676634312" class="facebook-link-row" target="_blank" rel="noopener noreferrer">
+              <i class="fa-brands fa-facebook"></i> Facebook →
+            </a>
+            <p class="facebook-subtext">Obserwuj nasze najnowsze realizacje i skontaktuj się bezpośrednio przez Messenger.</p>
+            
+            <div class="hours-summary-box">
+              <p>Biuro czynne:</p>
+              <p class="mono" style="font-weight: 500;">Pon–Pt: 07:00–17:00</p>
+            </div>
+          </div>
+          
+          <!-- Column 3 Map -->
+          <div class="contact-col-map">
+            <div class="map-container">
+              <iframe class="map-iframe" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.018337410747!2d21.110990458016634!3d50.085943540352396!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x473d7632a9167491%3A0x67a7fe93652b08ee!2sStare%20%C5%BBukowice%20207%2C%2033-151%20Stare%20%C5%BBukowice!5e0!3m2!1spl!2spl!4v1781246023453!5m2!1spl!2spl" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 9. FOOTER SECTION -->
+    <footer class="footer">
+      <div class="container footer-row grid">
+        <span class="footer-logo">Hydro Spec</span>
+        <span class="footer-center">Małopolska · Podkarpacie · Świętokrzyskie</span>
+        <span class="footer-right">© 2026 Hydro Spec. Wszelkie prawa zastrzeżone.</span>
+      </div>
+    </footer>
+
+    <!-- --- JAVASCRIPT CUSTOM LOGIC --- -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        // --- 1. Intersection Observer for Scroll Reveal ---
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('active');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, {
+          threshold: 0.15,
+          rootMargin: '0px 0px -50px 0px'
+        });
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // --- 2. Lightweight Count-Up Animations ---
+        const statElements = document.querySelectorAll('.stat-number');
+        const animateCount = (el) => {
+          const target = parseFloat(el.getAttribute('data-target'));
+          const suffix = el.getAttribute('data-suffix') || '';
+          const prefix = el.getAttribute('data-prefix') || '';
+          const isTime = el.hasAttribute('data-time');
+          let start = 0;
+          const duration = 1500; // ms transition duration
+          const startTime = performance.now();
+
+          const update = (now) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            
+            // Easing function: cubic easeOut
+            const ease = 1 - Math.pow(1 - progress, 3);
+            const current = start + ease * (target - start);
+
+            if (isTime) {
+              const hrs = Math.floor(current);
+              const hrsStr = hrs < 10 ? '0' + hrs : hrs;
+              el.textContent = `${hrsStr}:00`;
+            } else {
+              el.textContent = prefix + Math.floor(current) + suffix;
+            }
+
+            if (progress < 1) {
+              requestAnimationFrame(update);
+            } else {
+              if (isTime) {
+                el.textContent = '07:00';
+              } else {
+                el.textContent = prefix + target + suffix;
+              }
+            }
+          };
+          requestAnimationFrame(update);
+        };
+
+        const statObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                animateCount(entry.target);
+              }, 120);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        statElements.forEach(el => statObserver.observe(el));
+
+        // --- 3. Auto Highlight Today's Working Hours ---
+        const highlightActiveDay = () => {
+          let day = new Date().getDay(); // 0 = Sunday, 1 = Monday, etc.
+          // Map Sunday from 0 to 7
+          if (day === 0) day = 7;
+          const activeRow = document.querySelector(`.schedule-row[data-day="${day}"]`);
+          if (activeRow) {
+            activeRow.classList.add('active-day');
+          }
+        };
+        highlightActiveDay();
+
+        // --- 4. Announcement Bar Dismiss Status ---
+        const annBar = document.getElementById('announcement-bar');
+        const dismissBtn = document.getElementById('dismiss-bar');
+        if (localStorage.getItem('bar-dismissed')) {
+          if (annBar) annBar.style.display = 'none';
+        } else if (annBar && dismissBtn) {
+          dismissBtn.addEventListener('click', () => {
+            annBar.style.display = 'none';
+            localStorage.setItem('bar-dismissed', 'true');
+          });
+        }
+
+        // --- 5. Mobile Hamburger Navigation Toggle ---
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        if (menuToggle && mobileMenu) {
+          menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+          });
+
+          // Close mobile overlay on picking links
+          const mobileLinks = mobileMenu.querySelectorAll('a');
+          mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+              menuToggle.setAttribute('aria-expanded', 'false');
+              mobileMenu.classList.remove('active');
+              document.body.classList.remove('no-scroll');
+            });
+          });
+        }
+      });
+    </script>
+  </body>
+</html>
